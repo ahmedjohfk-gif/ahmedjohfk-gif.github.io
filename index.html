@@ -1,4 +1,5 @@
 <!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>منتدى دار القسطاس</title>
+<meta name="description" id="md" content="منتدى دار القسطاس: منتدى علمي ديني لنشر العلم الشرعي والردود على الشبهات بالدليل، ودروس مرئية ونقاش علمي على منهج السلف الصالح."><meta property="og:title" content="منتدى دار القسطاس"><meta property="og:description" content="منتدى دار القسطاس: منتدى علمي ديني لنشر العلم الشرعي والردود على الشبهات بالدليل، ودروس مرئية ونقاش علمي على منهج السلف الصالح."><meta property="og:type" content="website"><meta property="og:locale" content="ar_AR"><link rel="canonical" id="cn" href="">
 <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;700&display=swap" rel="stylesheet"><style>
 *{box-sizing:border-box}body{margin:0;background:#fff;color:#111;font:16px/1.9 Cairo,Tahoma,sans-serif}a{color:#111}
 .wrap{max-width:1000px;margin:auto;padding:0 12px 20px}.hd img{width:100%;display:block}
@@ -23,6 +24,7 @@ body.pc .grid{grid-template-columns:repeat(3,1fr);margin-top:0}body.pc .tile{min
 body.mob{max-width:480px;margin:0 auto;box-shadow:0 0 0 1px #000}
 .av{width:24px;height:24px;border-radius:50%;object-fit:cover;vertical-align:middle;margin-left:6px;border:1px solid #000;display:inline-block;background:#ddd;text-align:center;line-height:24px;font-size:13px;color:#000}
 .av.big{width:110px;height:110px;line-height:110px;font-size:44px;display:block;margin:0 auto 14px}
+a.tl{color:inherit;text-decoration:none}a.tl:hover{text-decoration:underline}footer .fl a{color:#666;margin:0 6px}
 a.u{color:inherit;font-weight:700;text-decoration:none}a.u:hover{text-decoration:underline}
 .prof{text-align:center}.prof small{font-size:14px;font-weight:400}
 </style></head><body>
@@ -725,7 +727,7 @@ VDZot80kK8jjFSSuRQwOtBsLWf7TpsUn3gvKfmKg3J61Sw68+nslssQkWRxkk4x22rQXdnNvhk/M1BSz
 zUdbaXB8yfmaD//Z" alt="منتدى دار القسطاس"></div>
 <div class="tk"><span>موقع تعليمي علمي فقط — لا يتبنى هذا المنتدى ولا يدعو إلى أي فكر متطرف أو عنف، ونحن سلفيون منهجيون غير تابعين ولا ممولين من أي جماعة متطرفة — غايتنا نشر العلم الشرعي والنقاش العلمي بالدليل &nbsp;&nbsp;✦&nbsp;&nbsp; موقع تعليمي علمي فقط — لا يتبنى هذا المنتدى ولا يدعو إلى أي فكر متطرف أو عنف</span></div>
 <nav><div class="wrap" id="nav"></div></nav><div class="wrap lay"><aside id="side"></aside><div id="app"></div></div>
-<footer>© 2026 منتدى دار القسطاس — جميع الحقوق محفوظة · موقع تعليمي</footer>
+<footer><div class="fl"><a href="./" data-go="home">الرئيسية</a> · <a href="?v=sec/rd" data-go="sec/rd">الردود على الشبهات</a> · <a href="?v=sec/vd" data-go="sec/vd">فيديوهات الدروس</a> · <a href="?v=sec/ps" data-go="sec/ps">المنشورات</a> · <a href="?v=sec/rl" data-go="sec/rl">القوانين</a> · <a href="?v=sec/mn" data-go="sec/mn">منهجنا</a> · <a href="?v=sec/sh" data-go="sec/sh">شيوخنا</a> · <a href="?v=sec/ad" data-go="sec/ad">حسابات المشرفين</a></div>© 2026 منتدى دار القسطاس — جميع الحقوق محفوظة · موقع تعليمي</footer>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
 <script>
 const CFG={URL:'https://jejdinzltqxugmlxgabv.supabase.co',KEY:'sb_publishable_-akCooKAiwDb_QFlC6PCOg_EC_U2ZIm'},MAXMB=50;
@@ -740,13 +742,13 @@ const $=s=>document.querySelector(s);
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const rich=s=>esc(s).replace(/(https?:\/\/[^\s<]+)/g,'<a href="$1" target="_blank" rel="noopener nofollow">$1</a>').replace(/\n/g,'<br>');
 const fd=t=>new Date(t).toLocaleString('ar-EG-u-nu-latn',{dateStyle:'short',timeStyle:'short'});
-let sb,me=null,view='home',timer=null;
+let sb,me=null,view=new URLSearchParams(location.search).get('v')||'home',timer=null;
 const ST={get:k=>{try{return localStorage.getItem(k)}catch(e){return null}},set:(k,v)=>{try{localStorage.setItem(k,v)}catch(e){}}};
 function applyMode(m){document.body.className=m;document.querySelector('meta[name=viewport]').content=m=='pc'&&screen.width<900?'width=1150':'width=device-width,initial-scale=1'}
 function setMode(m){ST.set('qmode',m);applyMode(m);render()}
 const nm=o=>esc(o.profiles?.display_name||o.profiles?.username||'محذوف'),av=(p,n,c='')=>p?`<img class="av ${c}" src="${url(p)}" alt="">`:`<span class="av ${c}">${esc([...String(n||'?')][0])}</span>`,
 un=o=>o.user_id&&o.profiles?`<a href="#" class="u" data-go="user/${o.user_id}">${av(o.profiles.avatar_path,o.profiles.display_name||o.profiles.username)}${nm(o)}</a>`:nm(o),sec=k=>SEC.find(s=>s.k==k),adm=()=>me&&['admin','مشرف'].includes(String(me.role||'').trim().toLowerCase()),can=o=>me&&(adm()||me.id==o.user_id);
-const q=async p=>{const{data,error}=await p;if(error)throw error;return data},go=x=>{view=x;render()};
+const q=async p=>{const{data,error}=await p;if(error)throw error;return data},go=x=>{if(x!=view)history.pushState(null,'',x=='home'?location.pathname:'?v='+x);view=x;render()};
 const em=n=>[...new TextEncoder().encode(n.toLowerCase())].map(b=>b.toString(16).padStart(2,'0')).join('')+'@users.qistas.app';
 const url=p=>sb.storage.from('media').getPublicUrl(p).data.publicUrl,rm=p=>p&&sb.storage.from('media').remove([p]);
 const med=o=>o.media_path?(o.media_type=='v'?`<video class="m" controls preload="metadata" src="${url(o.media_path)}"></video>`:`<img class="m" src="${url(o.media_path)}">`):'';
@@ -757,34 +759,34 @@ async function loadMe(){const{data:{session}}=await sb.auth.getSession();me=null
 async function claim(c){const{data,error}=await sb.rpc('claim_admin',{code:String(c).trim()});if(error)throw'تعذر التحقق: '+(error.message||'تأكد من تنفيذ كود SQL في Supabase');if(!data)throw'كود الإشراف غير صحيح';await loadMe()}
 const mf='<label>صورة أو فيديو (حتى '+MAXMB+' ميجابايت)</label><input type="file" name="media" accept="video/*,image/*">';
 const back=k=>`<div class="bar"><button class="w" data-go="home">← الرئيسية</button>${k?`<button class="w" data-go="sec/${k}">← ${sec(k).n}</button>`:''}</div>`;
-const trow=t=>`<div class="row" data-go="topic/${t.id}"><div><b>${esc(t.title)}</b><div class="mut">${un(t)} · ${fd(t.created)}</div></div><div class="mut">${t.replies?.[0]?.count||0} ردّ</div></div>`;
+const trow=t=>`<div class="row" data-go="topic/${t.id}"><div><b><a class="tl" href="?v=topic/${t.id}" data-go="topic/${t.id}">${esc(t.title)}</a></b><div class="mut">${un(t)} · ${fd(t.created)}</div></div><div class="mut">${t.replies?.[0]?.count||0} ردّ</div></div>`;
 const acts=(ty,o)=>can(o)?`<span><button class="s" data-go="edit/${ty}/${o.id}">تعديل</button> <button class="s" data-del="${ty}/${o.id}">حذف</button></span>`:'';
 async function loadChat(){const c=$('#cl');if(!c)return;const d=await q(sb.from('chat').select('*,profiles(username,display_name,avatar_path)').order('id',{ascending:false}).limit(100));
 c.innerHTML=d.reverse().map(m=>`<div class="msg"><b>${un(m)}</b> <span class="mut">${fd(m.created)}</span><br>${rich(m.text)}</div>`).join('')||'<div class="msg mut">لا رسائل بعد.</div>';c.scrollTop=c.scrollHeight}
-async function render(){clearInterval(timer);const[v,a,b]=view.split('/');let o='';
+async function render(){clearInterval(timer);const[v,a,b]=view.split('/');let o='',ttl='',dsc='';
 $('#nav').innerHTML='<button data-go="home">الرئيسية</button><span class="sp"></span><button data-act="mode">'+(document.body.className=='pc'?'📱 وضع الجوال':'🖥 وضع الكمبيوتر')+'</button>'+(me?`<i>أهلاً ${esc(me.display_name||me.username)}${adm()?' (مشرف)':''}</i><button data-go="user/${me.id}">حسابي</button><button data-act="out">خروج</button>`:'<button data-go="login">دخول</button><button data-go="register">تسجيل</button>');
 try{
 if(v=='home')o=`<div class="grid">${SEC.map(s=>`<button class="tile" data-go="sec/${s.k}">${s.n}<span>${s.d}</span></button>`).join('')}</div><div class="bar"><button data-go="code">خانة كودات الإشراف</button></div>`;
 else if(v=='login'||v=='register')o=back()+`<div class="card"><h2>${v=='login'?'تسجيل الدخول':'إنشاء حساب'}</h2><form data-f="${v}"><label>اسم المستخدم</label><input name="name" required><label>كلمة المرور</label><input type="password" name="pass" required><button>${v=='login'?'دخول':'تسجيل'}</button></form></div>`;
-else if(v=='sec'){const s=sec(a);o=back()+`<h2>${s.n}</h2>`;
+else if(v=='sec'){const s=sec(a);ttl=s.n;dsc=s.n+' — '+s.d+' | منتدى دار القسطاس';o=back()+`<h2>${s.n}</h2>`;
  if(s.t=='g'){const pg=await q(sb.from('pages').select('text').eq('key',a).maybeSingle());o+=`<div class="page">${rich(pg?pg.text:DEF[a])}</div>`+(adm()?`<div class="bar"><button data-go="pg/${a}">تعديل المحتوى</button></div>`:'')}
  else if(s.t=='c')o+='<div class="box" id="cl" style="max-height:380px;overflow:auto"></div>'+(me?'<form data-f="chat" style="margin-top:12px"><input name="text" placeholder="اكتب رسالتك..." maxlength="500" required autocomplete="off"><button>إرسال</button></form>':'<p><a href="#" data-go="login">سجّل دخولك</a> للمشاركة في الشات.</p>');
  else{const ts=await q(sb.from('topics').select('id,user_id,title,created,profiles(username,display_name,avatar_path),replies(count)').eq('sec',a).order('id',{ascending:false}).limit(100));
   o+=(me&&(!s.adm||adm())?`<div class="bar"><button data-go="new/${a}">+ ${a=='vd'?'فيديو جديد':'موضوع جديد'}</button></div>`:s.adm?'<p class="mut">النشر في هذا القسم للمشرفين فقط، ويمكن للأعضاء الرد.</p>':'<p class="mut">سجّل دخولك للنشر.</p>')+`<div class="box">${ts.map(trow).join('')||'<div class="row">لا توجد مشاركات بعد.</div>'}</div>`}}
-else if(v=='user'){const pr=await q(sb.from('profiles').select('*').eq('id',a).maybeSingle());if(!pr)throw'الحساب غير موجود';const ts=await q(sb.from('topics').select('id,sec,title,created,replies(count)').eq('user_id',a).order('id',{ascending:false}).limit(100)),isA=['admin','مشرف'].includes(String(pr.role||'').trim().toLowerCase()),pn=pr.display_name||pr.username;
-o=back()+`<div class="card prof">${av(pr.avatar_path,pn,'big')}<h2>${esc(pn)}${isA?' <small>(مشرف)</small>':''}</h2>${pr.bio?`<p>${rich(pr.bio)}</p>`:'<p class="mut">لا يوجد وصف.</p>'}${me&&me.id==pr.id?'<button data-go="me">تعديل حسابي</button>':''}</div><h3>منشورات ${esc(pn)} (${ts.length})</h3><div class="box">${ts.map(t=>`<div class="row" data-go="topic/${t.id}"><div><b>${esc(t.title)}</b><div class="mut">${sec(t.sec)?.n||''} · ${fd(t.created)}</div></div><div class="mut">${t.replies?.[0]?.count||0} ردّ</div></div>`).join('')||'<div class="row">لا توجد منشورات بعد.</div>'}</div>`}
+else if(v=='user'){const pr=await q(sb.from('profiles').select('*').eq('id',a).maybeSingle());if(!pr)throw'الحساب غير موجود';const ts=await q(sb.from('topics').select('id,sec,title,created,replies(count)').eq('user_id',a).order('id',{ascending:false}).limit(100)),isA=['admin','مشرف'].includes(String(pr.role||'').trim().toLowerCase()),pn=pr.display_name||pr.username;ttl=pn;dsc=pr.bio||'';
+o=back()+`<div class="card prof">${av(pr.avatar_path,pn,'big')}<h2>${esc(pn)}${isA?' <small>(مشرف)</small>':''}</h2>${pr.bio?`<p>${rich(pr.bio)}</p>`:'<p class="mut">لا يوجد وصف.</p>'}${me&&me.id==pr.id?'<button data-go="me">تعديل حسابي</button>':''}</div><h3>منشورات ${esc(pn)} (${ts.length})</h3><div class="box">${ts.map(t=>`<div class="row" data-go="topic/${t.id}"><div><b><a class="tl" href="?v=topic/${t.id}" data-go="topic/${t.id}">${esc(t.title)}</a></b><div class="mut">${sec(t.sec)?.n||''} · ${fd(t.created)}</div></div><div class="mut">${t.replies?.[0]?.count||0} ردّ</div></div>`).join('')||'<div class="row">لا توجد منشورات بعد.</div>'}</div>`}
 else if(v=='me'){if(!me)return go('login');o=back()+`<div class="card"><h2>حسابي</h2><form data-f="prof">${av(me.avatar_path,me.display_name||me.username,'big')}<label>صورة الحساب (من المعرض)</label><input type="file" name="avatar" accept="image/*">${me.avatar_path?'<label><input type="checkbox" name="rmav" style="width:auto"> حذف الصورة الحالية</label>':''}<label>الاسم الظاهر</label><input name="dn" maxlength="30" value="${esc(me.display_name||me.username)}"><label>الوصف</label><textarea name="bio" rows="4" maxlength="300">${esc(me.bio)}</textarea><button>حفظ</button></form><p class="mut">اسم الدخول يبقى كما هو: ${esc(me.username)}</p></div><div class="bar"><button data-go="user/${me.id}">عرض صفحتي العامة</button></div>`}
 else if(v=='code'){if(!me)return go('login');o=back()+`<div class="card"><h2>خانة كودات الإشراف</h2>${adm()?'<p>أنت مشرف بالفعل.</p>':'<form data-f="code"><label>أدخل كود الإشراف</label><input type="password" name="code" required autocomplete="off"><button>تفعيل</button></form>'}</div>`}
 else if(v=='pg'){if(!adm())return go('home');const pg=await q(sb.from('pages').select('text').eq('key',a).maybeSingle());o=back(a)+`<h2>تعديل: ${sec(a).n}</h2><form data-f="pg" data-k="${a}"><textarea name="text" rows="14">${esc(pg?pg.text:DEF[a])}</textarea><button>حفظ</button></form>`}
 else if(v=='new'){const s=sec(a);if(!me||(s.adm&&!adm()))return go('home');o=back(a)+`<h2>جديد في: ${s.n}</h2><form data-f="new" data-s="${a}"><label>العنوان</label><input name="title" required maxlength="200"><label>النص</label><textarea name="body" rows="9" required></textarea><label>روابط ومراجع (سطر لكل رابط)</label><textarea name="refs" rows="3"></textarea>${mf}<button>نشر</button></form>`}
 else if(v=='topic'){const t=await q(sb.from('topics').select('*,profiles(username,display_name,avatar_path)').eq('id',a).single()),rs=await q(sb.from('replies').select('*,profiles(username,display_name,avatar_path)').eq('topic_id',a).order('id'));
- o=back(t.sec)+`<h2>${esc(t.title)}</h2><div class="post"><div class="h"><span>${un(t)} · ${fd(t.created)}</span>${acts('t',t)}</div><div class="b">${rich(t.body)}${med(t)}${t.refs?`<div class="refs"><b>روابط ومراجع:</b><br>${rich(t.refs)}</div>`:''}</div></div>`
+ ttl=t.title;dsc=t.body;o=back(t.sec)+`<h2>${esc(t.title)}</h2><div class="post"><div class="h"><span>${un(t)} · ${fd(t.created)}</span>${acts('t',t)}</div><div class="b">${rich(t.body)}${med(t)}${t.refs?`<div class="refs"><b>روابط ومراجع:</b><br>${rich(t.refs)}</div>`:''}</div></div>`
  +rs.map(x=>`<div class="post"><div class="h"><span>${un(x)} · ${fd(x.created)}</span>${acts('r',x)}</div><div class="b">${rich(x.body)}${med(x)}</div></div>`).join('')
  +(me?`<h3>أضف رداً</h3><form data-f="reply" data-t="${t.id}"><textarea name="body" rows="5"></textarea>${mf}<button>إرسال الرد</button></form>`:'<p><a href="#" data-go="login">سجّل دخولك</a> للرد.</p>')}
 else if(v=='edit'){const e=await q(sb.from(a=='t'?'topics':'replies').select('*').eq('id',b).single());if(!can(e))return go('home');
  o=back()+`<h2>تعديل</h2><form data-f="edit" data-ty="${a}" data-id="${e.id}">${a=='t'?`<label>العنوان</label><input name="title" value="${esc(e.title)}">`:''}<label>النص</label><textarea name="body" rows="9">${esc(e.body)}</textarea>${a=='t'?`<label>روابط ومراجع</label><textarea name="refs" rows="3">${esc(e.refs)}</textarea>`:''}${mf}${e.media_path?'<label><input type="checkbox" name="rm" style="width:auto"> حذف المرفق الحالي</label>':''}<button>حفظ</button></form>`}
 }catch(x){o=back()+'<div class="err">'+esc(x.message||x)+'</div>'}
-$('#app').innerHTML=o;$('#side').innerHTML='<h3>الأقسام</h3>'+SEC.map(s=>`<button class="${v=='sec'&&a==s.k?'on':''}" data-go="sec/${s.k}">${s.n}</button>`).join('');scrollTo(0,0);if(v=='sec'&&a=='ch'){loadChat().catch(()=>{});timer=setInterval(()=>loadChat().catch(()=>{}),4000)}}
+$('#app').innerHTML=o;document.title=(ttl?ttl+' - ':'')+'منتدى دار القسطاس';$('#md').content=String(dsc||'منتدى دار القسطاس: منتدى علمي ديني لنشر العلم الشرعي والردود على الشبهات بالدليل، ودروس مرئية ونقاش علمي على منهج السلف الصالح.').replace(/\s+/g,' ').trim().slice(0,160);$('#cn').href=location.origin+location.pathname+(view=='home'?'':'?v='+view);$('#side').innerHTML='<h3>الأقسام</h3>'+SEC.map(s=>`<button class="${v=='sec'&&a==s.k?'on':''}" data-go="sec/${s.k}">${s.n}</button>`).join('');scrollTo(0,0);if(v=='sec'&&a=='ch'){loadChat().catch(()=>{});timer=setInterval(()=>loadChat().catch(()=>{}),4000)}}
 document.addEventListener('submit',async e=>{e.preventDefault();const f=e.target,d=Object.fromEntries(new FormData(f)),D=f.dataset;
 try{switch(D.f){
 case'register':{const n=d.name.trim();if(n.length<3||new TextEncoder().encode(n).length>30)throw'اسم المستخدم من 3 أحرف وحتى نحو 15 حرفاً';if(d.pass.length<6)throw'كلمة المرور 6 أحرف على الأقل';
@@ -808,6 +810,7 @@ const b=e.target.closest('[data-del]');if(!b)return;if(b.dataset.c!=1){b.dataset
 try{if(ty=='t'){const t=await q(sb.from('topics').select('sec,media_path').eq('id',id).single()),rs=await q(sb.from('replies').select('media_path').eq('topic_id',id));[t,...rs].forEach(x=>rm(x.media_path));await q(sb.from('topics').delete().eq('id',id));go('sec/'+t.sec)}
 else{const r=await q(sb.from('replies').select('media_path,topic_id').eq('id',id).single());rm(r.media_path);await q(sb.from('replies').delete().eq('id',id));go('topic/'+r.topic_id)}}
 catch(x){$('#app').insertAdjacentHTML('afterbegin','<div class="err">'+esc(x.message||x)+'</div>')}});
+addEventListener('popstate',()=>{view=new URLSearchParams(location.search).get('v')||'home';render()});
 (async()=>{applyMode(ST.get('qmode')||(innerWidth>=900?'pc':'mob'));if(CFG.URL.startsWith('PUT_')){$('#app').innerHTML='<div class="card"><h2>الموقع غير مربوط بعد</h2><p>ضع رابط Supabase والمفتاح العام في أول السكربت.</p></div>';return}
 sb=supabase.createClient(CFG.URL,CFG.KEY);await loadMe().catch(()=>{});render()})();
 </script></body></html>
